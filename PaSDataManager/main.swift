@@ -1,12 +1,9 @@
-//
-//  main.swift
-//  PaSDataManager
-//
-//  Created by Mulang Su on 2018/08/13.
-//  Copyright © 2018年 Mulang Su. All rights reserved.
-//
-
 import Foundation
 
-print("Hello, World!")
+let arguments = CommandLine.arguments
+
+if arguments.count == 1 {
+    print("Please enter a subcommand")
+    exit(0)
+}
 
