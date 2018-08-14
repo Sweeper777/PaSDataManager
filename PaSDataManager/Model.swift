@@ -1,6 +1,6 @@
 import Foundation
 
-struct PortsAndSurveyorsData: Codable {
+class PortsAndSurveyorsData: Codable {
     let surveyors: [Surveyor]
     let ports: [Port]
 }
