@@ -29,3 +29,10 @@ func printPortVerbose(_ port: Port, data: PortsAndSurveyorsData) {
     printPort(port)
     surveyors.forEach { print($0!) }
 }
+
+func view(args: [String], data: PortsAndSurveyorsData) {
+    if args.count < 2 {
+        print("At least 2 arguments expected for 'view' command!")
+        exit(0)
+    }
+}
