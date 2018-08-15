@@ -44,6 +44,19 @@ func view(args: [String], data: PortsAndSurveyorsData) {
         
         printSurveyor(surveyor)
     case "-p;":
+        guard let i = Int(args[1]) else {
+            print("Invalid Port Index")
+            exit(0)
+        }
+        guard i < data.ports.count && i > 0 else {
+            print("Port Index Out of Range")
+            exit(0)
+        }
+        if args.count > 2 && args[2] == "-v" {
+            printPortVerbose(data.ports[i], data: data)
+        } else {
+            printPort(data.ports[i])
+        }
     default:
     }
 }
