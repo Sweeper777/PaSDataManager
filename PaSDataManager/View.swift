@@ -37,6 +37,12 @@ func view(args: [String], data: PortsAndSurveyorsData) {
     }
     switch args[0] {
     case "-s":
+        guard let id = Int(args[1]), let surveyor = data.surveyorsDictionary[id] else {
+            print("Invalid Surveyor ID")
+            exit(0)
+        }
+        
+        printSurveyor(surveyor)
     case "-p;":
     default:
     }
