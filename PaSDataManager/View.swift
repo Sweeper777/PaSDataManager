@@ -58,5 +58,7 @@ func view(args: [String], data: PortsAndSurveyorsData) {
             printPort(data.ports[i])
         }
     default:
+        print("Unrecognised argument: \(args[0])")
+        exit(0)
     }
 }
