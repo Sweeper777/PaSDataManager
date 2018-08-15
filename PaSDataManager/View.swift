@@ -35,4 +35,9 @@ func view(args: [String], data: PortsAndSurveyorsData) {
         print("At least 2 arguments expected for 'view' command!")
         exit(0)
     }
+    switch args[0] {
+    case "-s":
+    case "-p;":
+    default:
+    }
 }
