@@ -12,3 +12,10 @@ func printSurveyor(_ surveyor: Surveyor) {
         print(line)
     }
 }
+
+func printPort(_ port: Port) {
+    print("Name: \(port.name)")
+    print("Latitude: \(port.latitude)")
+    print("Longitude: \(port.longitude)")
+    print("Surveyors: \(port.surveyors)")
+}
