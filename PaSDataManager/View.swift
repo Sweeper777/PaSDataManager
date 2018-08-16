@@ -1,6 +1,7 @@
 import Foundation
 
 func printSurveyor(_ surveyor: Surveyor) {
+    printSeparator(withColor: .cyan)
     print("Name: \(surveyor.name)")
     print("ID: \(surveyor.id)")
     print("Contacts:")
@@ -11,16 +12,20 @@ func printSurveyor(_ surveyor: Surveyor) {
     for line in surveyor.prices {
         print(line)
     }
+    printSeparator(withColor: .cyan)
 }
 
 func printPort(_ port: Port) {
+    printSeparator(withColor: .yellow)
     print("Name: \(port.name)")
     print("Latitude: \(port.latitude)")
     print("Longitude: \(port.longitude)")
     print("Surveyors: \(port.surveyors)")
+    printSeparator(withColor: .yellow)
 }
 
 func printPortVerbose(_ port: Port, data: PortsAndSurveyorsData) {
+    printSeparator(withColor: .yellow)
     let surveyors = port.surveyors.map { data.surveyorsDictionary[$0] }
     if surveyors.contains(where: { $0 == nil }) {
         print("Unknown surveyor detected!")
@@ -28,6 +33,7 @@ func printPortVerbose(_ port: Port, data: PortsAndSurveyorsData) {
     }
     printPort(port)
     surveyors.forEach { printSurveyor($0!) }
+    printSeparator(withColor: .yellow)
 }
 
 func view(args: [String], data: PortsAndSurveyorsData) {
