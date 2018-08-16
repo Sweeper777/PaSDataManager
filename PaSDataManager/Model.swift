@@ -1,12 +1,12 @@
 import Foundation
 
 class PortsAndSurveyorsData: Codable {
-    let surveyors: [Surveyor]
-    let ports: [Port]
+    var surveyors: [Surveyor]!
+    var ports: [Port]!
     private var dictionary: [Int: Surveyor]!
     
     var surveyorsDictionary: [Int: Surveyor] {
-        if dictionary != nil {
+        if dictionary == nil {
             dictionary = [Int: Surveyor](uniqueKeysWithValues: surveyors.map { ($0.id, $0) })
         }
         return dictionary
