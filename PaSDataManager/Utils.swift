@@ -29,3 +29,7 @@ enum ANSIColors: String {
         return [.black, .red, .green, .yellow, .blue, .magenta, .cyan, .white]
     }
 }
+
+func printSeparator(withColor color: ANSIColors = .reset) {
+    print(color.rawValue + "--------------------------------" + ANSIColors.reset.rawValue)
+}
