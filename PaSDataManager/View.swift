@@ -27,7 +27,7 @@ func printPortVerbose(_ port: Port, data: PortsAndSurveyorsData) {
         exit(0)
     }
     printPort(port)
-    surveyors.forEach { print($0!) }
+    surveyors.forEach { printSurveyor($0!) }
 }
 
 func view(args: [String], data: PortsAndSurveyorsData) {
@@ -43,12 +43,12 @@ func view(args: [String], data: PortsAndSurveyorsData) {
         }
         
         printSurveyor(surveyor)
-    case "-p;":
+    case "-p":
         guard let i = Int(args[1]) else {
             print("Invalid Port Index")
             exit(0)
         }
-        guard i < data.ports.count && i > 0 else {
+        guard i < data.ports.count && i >= 0 else {
             print("Port Index Out of Range")
             exit(0)
         }
