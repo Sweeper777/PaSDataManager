@@ -49,4 +49,12 @@ func askForPort() -> Port {
     guard let latitude = readLine().map(Double.init) as? Double else { exit(0) }
     print("Longitude: ", terminator: "")
     guard let longitude = readLine().map(Double.init) as? Double else { exit(0) }
+    print("Surveyors: (separated by commas)")
+    guard let surveyorsLine = readLine() else { exit(0) }
+    let surveyorIDs = surveyorsLine.split(separator: ",").compactMap { Int($0) }
+    guard surveyorIDs.count > 0 else {
+        print("No valid surveyor IDs")
+        exit(0)
+    }
+    return Port(name: name, latitude: latitude, longitude: longitude, surveyors: surveyorIDs)
 }
