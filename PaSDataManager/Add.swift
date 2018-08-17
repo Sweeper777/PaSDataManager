@@ -27,3 +27,17 @@ func askForSurveyor(data: PortsAndSurveyorsData) -> Surveyor {
     }
     return Surveyor(id: idToUse, name: name, contacts: contacts, prices: prices)
 }
+
+func addSurveyor(data: PortsAndSurveyorsData) {
+    var surveyor: Surveyor!
+    while true {
+        surveyor = askForSurveyor(data: data)
+        print("Please review the details:")
+        printSurveyor(surveyor)
+        print("Type \"revise\" to revise the data. Type anything else will add the surveyor")
+        if readLine() != "revise" {
+            break
+        }
+    }
+    data.surveyors.append(surveyor)
+}
