@@ -7,4 +7,13 @@ func askForSurveyor(data: PortsAndSurveyorsData) -> Surveyor {
     let idToUse = allIDSet.subtracting(surveyorIDSet).min()!
     print("Name of Surveyor: ", terminator: "")
     guard let name = readLine() else { exit(0) }
+    print("Contact Details: ")
+    var contacts = [String]()
+    while true {
+        if let line = readLine() {
+            contacts.append(line)
+        } else {
+            break
+        }
+    }
 }
