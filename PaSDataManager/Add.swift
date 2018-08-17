@@ -16,4 +16,14 @@ func askForSurveyor(data: PortsAndSurveyorsData) -> Surveyor {
             break
         }
     }
+    print("Price Details: ")
+    var prices = [String]()
+    while true {
+        if let line = readLine() {
+            prices.append(line)
+        } else {
+            break
+        }
+    }
+    return Surveyor(id: idToUse, name: name, contacts: contacts, prices: prices)
 }
