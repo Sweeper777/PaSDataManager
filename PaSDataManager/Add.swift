@@ -41,3 +41,12 @@ func addSurveyor(data: PortsAndSurveyorsData) {
     }
     data.surveyors.append(surveyor)
 }
+
+func askForPort() -> Port {
+    print("Name of Port: ", terminator: "")
+    guard let name = readLine() else { exit(0) }
+    print("Latitude: ", terminator: "")
+    guard let latitude = readLine().map(Double.init) as? Double else { exit(0) }
+    print("Longitude: ", terminator: "")
+    guard let longitude = readLine().map(Double.init) as? Double else { exit(0) }
+}
