@@ -50,5 +50,6 @@ func saveFile(data: PortsAndSurveyorsData) throws {
     let encoder = JSONEncoder()
     let data = try encoder.encode(data)
     let jsonString = String(data: data, encoding: .utf8)!
-    try jsonString.write(to: URL(string: CommandLine.arguments.last!)!, atomically: false, encoding: .utf8)
+    let url = URL(fileURLWithPath: FileManager.default.currentDirectoryPath).appendingPathComponent(CommandLine.arguments.last!)
+    try jsonString.write(to: url, atomically: false, encoding: .utf8)
 }
