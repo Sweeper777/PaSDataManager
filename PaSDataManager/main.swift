@@ -11,7 +11,11 @@ if arguments.count == 1 {
 switch arguments[1].lowercased() {
 case "validate":
     let data = readFile()
-    validate(data: data)
+    let errors = validate(data: data)
+    print("Validation completed. \(errors.count) error(s) found.")
+    for error in errors {
+        print(error)
+    }
 case "view":
     let data = readFile()
     let subcommandArguments = Array(arguments.dropFirst(2).dropLast())
