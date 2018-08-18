@@ -1,12 +1,15 @@
 import Foundation
 
-func validate(data portsAndSurveyorsData: PortsAndSurveyorsData) {
+@discardableResult
+func validate(data portsAndSurveyorsData: PortsAndSurveyorsData) -> [String] {
+    var errors = [String]()
+    
     // duplicate ids
     let surveyorIds = portsAndSurveyorsData.surveyors.map { $0.id }
     var idSet = Set<Int>()
     for id in surveyorIds {
         if !idSet.insert(id).inserted {
-            print("Surveyor ID \(id) appears more than once!")
+            errors.append("Surveyor ID \(id) appears more than once!")
         }
     }
     
@@ -15,14 +18,14 @@ func validate(data portsAndSurveyorsData: PortsAndSurveyorsData) {
     var nameSet = Set<String>()
     for name in portNames {
         if !nameSet.insert(name).inserted {
-            print("Port name \"\(name)\" appears more than once!")
+            errors.append("Port name \"\(name)\" appears more than once!")
         }
     }
     
     // ports have surveyors
     for port in portsAndSurveyorsData.ports {
         if port.surveyors.isEmpty {
-            print("Port \"\(port.name)\" has no surveyors!")
+            errors.append("Port \"\(port.name)\" has no surveyors!")
         }
     }
     
@@ -30,7 +33,7 @@ func validate(data portsAndSurveyorsData: PortsAndSurveyorsData) {
     for port in portsAndSurveyorsData.ports {
         for surveyorId in port.surveyors {
             if !surveyorIds.contains(surveyorId) {
-                print("Port \"\(port.name)\" has a non-existent surveyor: \(surveyorId)!")
+                errors.append("Port \"\(port.name)\" has a non-existent surveyor: \(surveyorId)!")
             }
         }
     }
@@ -38,7 +41,7 @@ func validate(data portsAndSurveyorsData: PortsAndSurveyorsData) {
     // ports have duplicate surveyors
     for port in portsAndSurveyorsData.ports {
         if Set(port.surveyors).count != port.surveyors.count {
-            print("Port \"\(port.name)\" has duplicate surveyors!")
+            errors.append("Port \"\(port.name)\" has duplicate surveyors!")
         }
     }
     
@@ -46,7 +49,7 @@ func validate(data portsAndSurveyorsData: PortsAndSurveyorsData) {
     for i in 0..<portsAndSurveyorsData.surveyors.count {
         for j in 0..<portsAndSurveyorsData.surveyors.count where j != i {
             if portsAndSurveyorsData.surveyors[i].isIdentical(to: portsAndSurveyorsData.surveyors[j]) {
-                print("Surveyor ID \(portsAndSurveyorsData.surveyors[i].id) is identical to surveyor ID \(portsAndSurveyorsData.surveyors[j].id)")
+                errors.append("Surveyor ID \(portsAndSurveyorsData.surveyors[i].id) is identical to surveyor ID \(portsAndSurveyorsData.surveyors[j].id)")
             }
         }
     }
@@ -54,13 +57,11 @@ func validate(data portsAndSurveyorsData: PortsAndSurveyorsData) {
     // surveyors without price or contacts
     for surveyor in portsAndSurveyorsData.surveyors {
         if surveyor.contacts.filter({ $0.trimmingCharacters(in: CharacterSet.whitespaces) != ""}).count == 0 {
-            print("Surveyor ID \(surveyor.id) has no contact info!")
+            errors.append("Surveyor ID \(surveyor.id) has no contact info!")
         }
         if surveyor.prices.filter({ $0.trimmingCharacters(in: CharacterSet.whitespaces) != ""}).count == 0 {
-            print("Surveyor ID \(surveyor.id) has no price info!")
+            errors.append("Surveyor ID \(surveyor.id) has no price info!")
         }
     }
-    
-    print("Check complete")
-
+    return errors
 }
