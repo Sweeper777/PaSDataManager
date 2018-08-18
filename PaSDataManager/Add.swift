@@ -58,3 +58,17 @@ func askForPort() -> Port {
     }
     return Port(name: name, latitude: latitude, longitude: longitude, surveyors: surveyorIDs)
 }
+
+func addPort(data: PortsAndSurveyorsData) {
+    var port: Port!
+    while true {
+        port = askForPort()
+        print("Please review the details:")
+        printPort(port)
+        print("Type 'revise' to revise the data. Type anything else will add the port")
+        if readLine() != "revise" {
+            break
+        }
+    }
+    data.ports.append(port)
+}
