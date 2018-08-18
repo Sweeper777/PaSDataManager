@@ -72,3 +72,19 @@ func addPort(data: PortsAndSurveyorsData) {
     }
     data.ports.append(port)
 }
+
+func add(args: [String], data: PortsAndSurveyorsData) {
+    if args.count < 2 {
+        print("At least 2 arguments expected for 'add' command!")
+        exit(0)
+    }
+    switch args[0] {
+    case "-s":
+        addSurveyor(data: data)
+    case "-p":
+        addPort(data: data)
+    default:
+        print("Unrecognised argument: \(args[0])")
+        exit(0)
+    }
+}
