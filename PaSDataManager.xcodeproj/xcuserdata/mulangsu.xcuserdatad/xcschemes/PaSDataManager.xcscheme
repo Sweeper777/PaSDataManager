@@ -64,6 +64,10 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
+            argument = "add"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
             argument = "view"
             isEnabled = "YES">
          </CommandLineArgument>
@@ -73,19 +77,23 @@
          </CommandLineArgument>
          <CommandLineArgument
             argument = "-p"
-            isEnabled = "YES">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "-s"
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "3"
+            argument = "-s"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "139"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "-v"
-            isEnabled = "YES">
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-c"
+            isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "data.json"
