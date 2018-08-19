@@ -108,6 +108,11 @@ func addPort(data: PortsAndSurveyorsData, check: Bool) {
         }
     }
     
+    do {
+        try saveFile(data: data)
+    } catch {
+        print(ANSIColors.red.rawValue + error.localizedDescription + ANSIColors.reset.rawValue)
+    }
 }
 
 func add(args: [String], data: PortsAndSurveyorsData) {
