@@ -17,10 +17,11 @@ func askForSurveyor(data: PortsAndSurveyorsData) -> Surveyor {
             break
         }
     }
-    print("Price Details: ")
+    print("Price Details: (type 5 asterisks to end)")
     var prices = [String]()
     while true {
-        if let line = readLine() {
+        let line = readLine()!
+        if line != "*****" {
             prices.append(line)
         } else {
             break
