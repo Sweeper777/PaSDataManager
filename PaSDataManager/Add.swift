@@ -81,7 +81,7 @@ func askForPort() -> Port {
     return Port(name: name, latitude: latitude, longitude: longitude, surveyors: surveyorIDs)
 }
 
-func addPort(data: PortsAndSurveyorsData) {
+func addPort(data: PortsAndSurveyorsData, check: Bool) {
     var port: Port!
     while true {
         port = askForPort()
@@ -93,6 +93,21 @@ func addPort(data: PortsAndSurveyorsData) {
         }
     }
     data.ports.append(port)
+    
+    if check {
+        print("Validating data...")
+        let errors = validate(data: data)
+        print("Validation complete. \(errors.count) error(s) found.")
+        for error in errors {
+            print(error)
+        }
+        
+        if errors.count > 0 {
+            print("The port is not saved to file due to having at least 1 error.")
+            return
+        }
+    }
+    
 }
 
 func add(args: [String], data: PortsAndSurveyorsData) {
