@@ -122,9 +122,9 @@ func add(args: [String], data: PortsAndSurveyorsData) {
     }
     switch args[0] {
     case "-s":
-        addSurveyor(data: data)
+        addSurveyor(data: data, check: args.contains("-c"))
     case "-p":
-        addPort(data: data)
+        addPort(data: data, check: args.contains("-c"))
     default:
         print("Unrecognised argument: \(args[0])")
         exit(0)
