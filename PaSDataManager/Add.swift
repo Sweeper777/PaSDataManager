@@ -56,6 +56,12 @@ func addSurveyor(data: PortsAndSurveyorsData, check: Bool) {
             return
         }
     }
+    
+    do {
+        try saveFile(data: data)
+    } catch {
+        print(ANSIColors.red.rawValue + error.localizedDescription + ANSIColors.reset.rawValue)
+    }
 }
 
 func askForPort() -> Port {
