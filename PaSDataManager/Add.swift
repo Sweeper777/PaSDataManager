@@ -30,7 +30,7 @@ func askForSurveyor(data: PortsAndSurveyorsData) -> Surveyor {
     return Surveyor(id: idToUse, name: name, contacts: contacts, prices: prices)
 }
 
-func addSurveyor(data: PortsAndSurveyorsData) {
+func addSurveyor(data: PortsAndSurveyorsData, check: Bool) {
     var surveyor: Surveyor!
     while true {
         surveyor = askForSurveyor(data: data)
@@ -42,6 +42,20 @@ func addSurveyor(data: PortsAndSurveyorsData) {
         }
     }
     data.surveyors.append(surveyor)
+    
+    if check {
+        print("Validating data...")
+        let errors = validate(data: data)
+        print("Validation complete. \(errors.count) error(s) found.")
+        for error in errors {
+            print(error)
+        }
+        
+        if errors.count > 0 {
+            print("The surveyor is not saved to file due to having at least 1 error.")
+            return
+        }
+    }
 }
 
 func askForPort() -> Port {
