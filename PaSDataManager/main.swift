@@ -20,6 +20,10 @@ case "view":
     let data = readFile()
     let subcommandArguments = Array(arguments.dropFirst(2).dropLast())
     view(args: subcommandArguments, data: data)
+case "add":
+    let data = readFile()
+    let subcommandArguments = Array(arguments.dropFirst(2).dropLast())
+    add(args: subcommandArguments, data: data)
 default:
     print("Unknown command")
     exit(0)
