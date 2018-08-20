@@ -30,3 +30,10 @@ func deletePort(index: Int, data: PortsAndSurveyorsData) {
         }
     }
 }
+
+func delete(args: [String], data: PortsAndSurveyorsData) {
+    if args.count < 2 {
+        print("At least 2 arguments expected for 'delete' command!")
+        exit(0)
+    }
+}
