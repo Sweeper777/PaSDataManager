@@ -36,4 +36,16 @@ func delete(args: [String], data: PortsAndSurveyorsData) {
         print("At least 2 arguments expected for 'delete' command!")
         exit(0)
     }
+    switch args[0] {
+    case "-s":
+        guard let id = Int(args[1]) else {
+            print("Invalid Surveyor ID")
+            exit(0)
+        }
+        
+        deleteSurveyor(id: id, data: data)
+    default:
+        print("Unrecognised argument: \(args[0])")
+        exit(0)
+    }
 }
