@@ -17,3 +17,16 @@ func deleteSurveyor(id: Int, data: PortsAndSurveyorsData) {
         }
     }
 }
+
+func deletePort(index: Int, data: PortsAndSurveyorsData) {
+    print("Are you sure you want to delete this port?")
+    print("Type 'confirm' to confirm: ", terminator: "")
+    if readLine() == "confirm" {
+        data.ports.remove(at: index)
+        do {
+            try saveFile(data: data)
+        } catch {
+            print(ANSIColors.red.rawValue + error.localizedDescription + ANSIColors.reset.rawValue)
+        }
+    }
+}
