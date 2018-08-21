@@ -1,6 +1,6 @@
 import Foundation
 
-func deleteSurveyor(id: Int, data: PortsAndSurveyorsData) {
+func deleteSurveyor(id: Int, data: PortsAndSurveyorsData, check: Bool) {
     guard let index = data.surveyors.index(where: { $0.id == id }) else {
         print("Surveyor with ID \(id) not found!")
         exit(0)
@@ -11,6 +11,21 @@ func deleteSurveyor(id: Int, data: PortsAndSurveyorsData) {
     print("Type 'confirm' to confirm: ", terminator: "")
     if readLine() == "confirm" {
         data.surveyors.remove(at: index)
+        
+        if check {
+            print("Validating data...")
+            let errors = validate(data: data)
+            print("Validation complete. \(errors.count) error(s) found.")
+            for error in errors {
+                print(error)
+            }
+            
+            if errors.count > 0 {
+                print("The surveyor is not deleted due to having at least 1 error.")
+                return
+            }
+        }
+        
         do {
             try saveFile(data: data)
         } catch {
