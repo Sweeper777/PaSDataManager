@@ -24,6 +24,10 @@ case "add":
     let data = readFile()
     let subcommandArguments = Array(arguments.dropFirst(2).dropLast())
     add(args: subcommandArguments, data: data)
+case "delete":
+    let data = readFile()
+    let subcommandArguments = Array(arguments.dropFirst(2).dropLast())
+    delete(args: subcommandArguments, data: data)
 default:
     print("Unknown command")
     exit(0)
