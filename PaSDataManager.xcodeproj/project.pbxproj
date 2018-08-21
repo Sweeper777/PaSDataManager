@@ -13,6 +13,7 @@
 		5A447DD321210E3500F30A6C /* Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A447DD221210E3500F30A6C /* Validate.swift */; };
 		5A45C741212250570048CD8B /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A45C740212250570048CD8B /* View.swift */; };
 		5A46667E21250175000FB778 /* Add.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A46667D21250175000FB778 /* Add.swift */; };
+		5A47F82D212BF5EA007C8729 /* Copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A47F82C212BF5EA007C8729 /* Copy.swift */; };
 		5A531E5A212AA88E00B1D94F /* Delete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A531E59212AA88E00B1D94F /* Delete.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,7 @@
 		5A447DD221210E3500F30A6C /* Validate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validate.swift; sourceTree = "<group>"; };
 		5A45C740212250570048CD8B /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		5A46667D21250175000FB778 /* Add.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Add.swift; sourceTree = "<group>"; };
+		5A47F82C212BF5EA007C8729 /* Copy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Copy.swift; sourceTree = "<group>"; };
 		5A531E59212AA88E00B1D94F /* Delete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delete.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,6 +78,7 @@
 				5A45C740212250570048CD8B /* View.swift */,
 				5A46667D21250175000FB778 /* Add.swift */,
 				5A531E59212AA88E00B1D94F /* Delete.swift */,
+				5A47F82C212BF5EA007C8729 /* Copy.swift */,
 			);
 			path = PaSDataManager;
 			sourceTree = "<group>";
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A47F82D212BF5EA007C8729 /* Copy.swift in Sources */,
 				5A43ABA921241681006A480F /* Utils.swift in Sources */,
 				5A45C741212250570048CD8B /* View.swift in Sources */,
 				5A447DD321210E3500F30A6C /* Validate.swift in Sources */,
