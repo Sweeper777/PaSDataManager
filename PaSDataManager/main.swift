@@ -28,6 +28,9 @@ case "delete":
     let data = readFile()
     let subcommandArguments = Array(arguments.dropFirst(2).dropLast())
     delete(args: subcommandArguments, data: data)
+case "copy":
+    let data = readFile()
+    copyDataToClipboard(data: data)
 default:
     print("Unknown command")
     exit(0)
