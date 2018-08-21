@@ -6,7 +6,8 @@ func deleteSurveyor(id: Int, data: PortsAndSurveyorsData) {
         exit(0)
     }
     
-    print("Are you sure you want to delete this surveyor? (ID \(id)")
+    print("Are you sure you want to delete this surveyor?")
+    printSurveyor(data.surveyors[index])
     print("Type 'confirm' to confirm: ", terminator: "")
     if readLine() == "confirm" {
         data.surveyors.remove(at: index)
@@ -20,6 +21,7 @@ func deleteSurveyor(id: Int, data: PortsAndSurveyorsData) {
 
 func deletePort(index: Int, data: PortsAndSurveyorsData) {
     print("Are you sure you want to delete this port?")
+    printPort(data.ports[index])
     print("Type 'confirm' to confirm: ", terminator: "")
     if readLine() == "confirm" {
         data.ports.remove(at: index)
