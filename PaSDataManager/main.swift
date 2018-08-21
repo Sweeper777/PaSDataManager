@@ -8,28 +8,22 @@ if arguments.count == 1 {
     exit(0)
 }
 
+let data = readFile()
+let subcommandArguments = Array(arguments.dropFirst(2).dropLast())
 switch arguments[1].lowercased() {
 case "validate":
-    let data = readFile()
     let errors = validate(data: data)
     print("Validation completed. \(errors.count) error(s) found.")
     for error in errors {
         print(error)
     }
 case "view":
-    let data = readFile()
-    let subcommandArguments = Array(arguments.dropFirst(2).dropLast())
     view(args: subcommandArguments, data: data)
 case "add":
-    let data = readFile()
-    let subcommandArguments = Array(arguments.dropFirst(2).dropLast())
     add(args: subcommandArguments, data: data)
 case "delete":
-    let data = readFile()
-    let subcommandArguments = Array(arguments.dropFirst(2).dropLast())
     delete(args: subcommandArguments, data: data)
 case "copy":
-    let data = readFile()
     copyDataToClipboard(data: data)
 default:
     print("Unknown command")
