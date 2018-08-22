@@ -19,15 +19,15 @@ class PortsAndSurveyorsData: Codable {
 }
 
 struct Port: Codable {
-    let name: String
-    let latitude, longitude: Double
-    let surveyors: [Int]
+    var name: String
+    var latitude, longitude: Double
+    var surveyors: [Int]
 }
 
 struct Surveyor: Codable {
-    let id: Int
-    let name: String
-    let contacts, prices: [String]
+    var id: Int
+    var name: String
+    var contacts, prices: [String]
 }
 
 extension Surveyor {
