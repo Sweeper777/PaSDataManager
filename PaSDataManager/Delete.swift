@@ -28,6 +28,7 @@ func deleteSurveyor(id: Int, data: PortsAndSurveyorsData, check: Bool) {
         
         do {
             try saveFile(data: data)
+            print("The surveyor has been successfully deleted!")
         } catch {
             print(ANSIColors.red.rawValue + error.localizedDescription + ANSIColors.reset.rawValue)
         }
@@ -57,6 +58,7 @@ func deletePort(index: Int, data: PortsAndSurveyorsData, check: Bool) {
         
         do {
             try saveFile(data: data)
+            print("The port has been successfully deleted!")
         } catch {
             print(ANSIColors.red.rawValue + error.localizedDescription + ANSIColors.reset.rawValue)
         }
