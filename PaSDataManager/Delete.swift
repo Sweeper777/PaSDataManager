@@ -75,7 +75,7 @@ func delete(args: [String], data: PortsAndSurveyorsData) {
             exit(0)
         }
         
-        deleteSurveyor(id: id, data: data)
+        deleteSurveyor(id: id, data: data, check: args.contains("-c"))
     case "-p":
         guard let i = Int(args[1]) else {
             print("Invalid Port Index")
@@ -85,7 +85,7 @@ func delete(args: [String], data: PortsAndSurveyorsData) {
             print("Port Index Out of Range")
             exit(0)
         }
-        deletePort(index: i, data: data)
+        deletePort(index: i, data: data, check: args.contains("-c"))
     default:
         print("Unrecognised argument: \(args[0])")
         exit(0)
