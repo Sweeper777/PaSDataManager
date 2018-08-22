@@ -8,6 +8,7 @@ func copyDataToClipboard(data: PortsAndSurveyorsData) {
         let jsonString = String(data: data, encoding: .utf8)!
         NSPasteboard.general.setString(jsonString, forType: NSPasteboard.PasteboardType.fileContentsType(forPathExtension: "json"))
         print("JSON data is successfully copied to clipboard!")
+        NSPasteboard.general.declareTypes([.string], owner: nil)
     } catch {
         print(ANSIColors.red.rawValue + error.localizedDescription + ANSIColors.reset.rawValue)
     }
