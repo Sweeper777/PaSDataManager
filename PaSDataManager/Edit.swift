@@ -15,5 +15,17 @@ func editSurveyor(id: Int, data: PortsAndSurveyorsData) {
         print("Name of Surveyor: ", terminator: "")
         guard let name = readLine() else { exit(0) }
         surveyor.name = name
+    case "2":
+        print("Contact Details (type 5 asterisks to end): ")
+        var contacts = [String]()
+        while true {
+            let line = readLine()!
+            if line != "*****" {
+                contacts.append(line)
+            } else {
+                break
+            }
+        }
+        surveyor.contacts = contacts
     }
 }
