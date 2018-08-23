@@ -10,4 +10,10 @@ func editSurveyor(id: Int, data: PortsAndSurveyorsData) {
     print("1. Name")
     print("2. Contacts")
     print("3. Prices")
+    switch readLine() ?? "" {
+    case "1":
+        print("Name of Surveyor: ", terminator: "")
+        guard let name = readLine() else { exit(0) }
+        surveyor.name = name
+    }
 }
