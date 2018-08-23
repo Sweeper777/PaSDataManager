@@ -39,5 +39,16 @@ func editSurveyor(id: Int, data: PortsAndSurveyorsData) {
             }
         }
         surveyor.prices = prices
+    default:
+        print("Unrecognised property!")
+        exit(0)
+    }
+    
+    data.surveyors[index] = surveyor
+    
+    do {
+        try saveFile(data: data)
+    } catch {
+        print(ANSIColors.red.rawValue + error.localizedDescription + ANSIColors.reset.rawValue)
     }
 }
