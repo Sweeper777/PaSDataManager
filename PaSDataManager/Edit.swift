@@ -27,5 +27,17 @@ func editSurveyor(id: Int, data: PortsAndSurveyorsData) {
             }
         }
         surveyor.contacts = contacts
+    case "3":
+        print("Price Details: (type 5 asterisks to end)")
+        var prices = [String]()
+        while true {
+            let line = readLine()!
+            if line != "*****" {
+                prices.append(line)
+            } else {
+                break
+            }
+        }
+        surveyor.prices = prices
     }
 }
