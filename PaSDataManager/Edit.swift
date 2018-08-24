@@ -74,5 +74,14 @@ func editPort(index: Int, data: PortsAndSurveyorsData) {
         print("Longitude: ", terminator: "")
         guard let longitude = readLine().map(Double.init) as? Double else { exit(0) }
         port.longitude = longitude
+    case "4":
+        print("Surveyors: (separated by commas)")
+        guard let surveyorsLine = readLine() else { exit(0) }
+        let surveyorIDs = surveyorsLine.split(separator: ",").compactMap { Int($0) }
+        guard surveyorIDs.count > 0 else {
+            print("No valid surveyor IDs")
+            exit(0)
+        }
+        port.surveyors = surveyorIDs
     }
 }
