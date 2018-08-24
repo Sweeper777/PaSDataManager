@@ -52,3 +52,13 @@ func editSurveyor(id: Int, data: PortsAndSurveyorsData) {
         print(ANSIColors.red.rawValue + error.localizedDescription + ANSIColors.reset.rawValue)
     }
 }
+
+func editPort(index: Int, data: PortsAndSurveyorsData) {
+    var port = data.ports[index]
+    print("Please select the property to be edited:")
+    print("1. Name")
+    print("2. Latitude")
+    print("3. Longitude")
+    print("4. Surveyors")
+    
+}
