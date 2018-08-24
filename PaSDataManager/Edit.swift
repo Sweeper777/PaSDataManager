@@ -61,4 +61,10 @@ func editPort(index: Int, data: PortsAndSurveyorsData) {
     print("3. Longitude")
     print("4. Surveyors")
     
+    switch readLine() ?? "" {
+    case "1":
+        print("Name of Port: ", terminator: "")
+        guard let name = readLine() else { exit(0) }
+        port.name = name
+    }
 }
