@@ -116,8 +116,8 @@ func addPort(data: PortsAndSurveyorsData, check: Bool) {
 }
 
 func add(args: [String], data: PortsAndSurveyorsData) {
-    if args.count < 2 {
-        print("At least 2 arguments expected for 'add' command!")
+    if args.count < 1 {
+        print("At least 1 argument expected for 'add' command!")
         exit(0)
     }
     switch args[0] {
