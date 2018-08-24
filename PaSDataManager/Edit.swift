@@ -83,5 +83,14 @@ func editPort(index: Int, data: PortsAndSurveyorsData) {
             exit(0)
         }
         port.surveyors = surveyorIDs
+    default:
+        print("Unrecognised property!")
+        exit(0)
+    }
+    
+    do {
+        try saveFile(data: data)
+    } catch {
+        print(ANSIColors.red.rawValue + error.localizedDescription + ANSIColors.reset.rawValue)
     }
 }
