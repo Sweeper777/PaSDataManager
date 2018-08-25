@@ -94,3 +94,10 @@ func editPort(index: Int, data: PortsAndSurveyorsData) {
         print(ANSIColors.red.rawValue + error.localizedDescription + ANSIColors.reset.rawValue)
     }
 }
+
+func edit(args: [String], data: PortsAndSurveyorsData) {
+    if args.count < 2 {
+        print("At least 2 arguments expected for 'edit' command!")
+        exit(0)
+    }
+}
