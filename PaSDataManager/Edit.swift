@@ -100,4 +100,13 @@ func edit(args: [String], data: PortsAndSurveyorsData) {
         print("At least 2 arguments expected for 'edit' command!")
         exit(0)
     }
+    switch args[0] {
+    case "-s":
+        guard let id = Int(args[1]) else {
+            print("Invalid Surveyor ID")
+            exit(0)
+        }
+        
+        editSurveyor(id: id, data: data)
+    }
 }
