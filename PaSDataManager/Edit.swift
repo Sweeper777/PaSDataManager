@@ -108,5 +108,18 @@ func edit(args: [String], data: PortsAndSurveyorsData) {
         }
         
         editSurveyor(id: id, data: data)
+    case "-p":
+        guard let i = Int(args[1]) else {
+            print("Invalid Port Index")
+            exit(0)
+        }
+        guard i < data.ports.count && i >= 0 else {
+            print("Port Index Out of Range")
+            exit(0)
+        }
+        editPort(index: i, data: data)
+    default:
+        print("Unrecognised argument: \(args[0])")
+        exit(0)
     }
 }
