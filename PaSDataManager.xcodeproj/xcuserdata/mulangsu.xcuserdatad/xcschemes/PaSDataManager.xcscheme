@@ -73,10 +73,14 @@
          </CommandLineArgument>
          <CommandLineArgument
             argument = "copy"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "view"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "edit"
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
@@ -85,15 +89,15 @@
          </CommandLineArgument>
          <CommandLineArgument
             argument = "-p"
-            isEnabled = "NO">
+            isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "-s"
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "139"
-            isEnabled = "NO">
+            argument = "0"
+            isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "-v"
