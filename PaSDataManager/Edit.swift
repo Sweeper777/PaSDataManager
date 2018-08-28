@@ -1,6 +1,6 @@
 import Foundation
 
-func editSurveyor(id: Int, data: PortsAndSurveyorsData) {
+func editSurveyor(id: Int, data: PortsAndSurveyorsData, check: Bool) {
     guard let index = data.surveyors.index(where: { $0.id == id }) else {
         print("Surveyor with ID \(id) not found!")
         exit(0)
@@ -45,6 +45,20 @@ func editSurveyor(id: Int, data: PortsAndSurveyorsData) {
     }
     
     data.surveyors[index] = surveyor
+    
+    if check {
+        print("Validating data...")
+        let errors = validate(data: data)
+        print("Validation complete. \(errors.count) error(s) found.")
+        for error in errors {
+            print(error)
+        }
+        
+        if errors.count > 0 {
+            print("Changes are not saved due to having at least 1 error.")
+            return
+        }
+    }
     
     do {
         try saveFile(data: data)
