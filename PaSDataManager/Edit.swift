@@ -67,7 +67,7 @@ func editSurveyor(id: Int, data: PortsAndSurveyorsData, check: Bool) {
     }
 }
 
-func editPort(index: Int, data: PortsAndSurveyorsData) {
+func editPort(index: Int, data: PortsAndSurveyorsData, check: Bool) {
     var port = data.ports[index]
     print("Please select the property to be edited:")
     print("1. Name")
@@ -100,6 +100,22 @@ func editPort(index: Int, data: PortsAndSurveyorsData) {
     default:
         print("Unrecognised property!")
         exit(0)
+    }
+    
+    data.ports[index] = port
+    
+    if check {
+        print("Validating data...")
+        let errors = validate(data: data)
+        print("Validation complete. \(errors.count) error(s) found.")
+        for error in errors {
+            print(error)
+        }
+        
+        if errors.count > 0 {
+            print("Changes are not saved due to having at least 1 error.")
+            return
+        }
     }
     
     do {
