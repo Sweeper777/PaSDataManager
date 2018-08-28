@@ -25,6 +25,8 @@ case "delete":
     delete(args: subcommandArguments, data: data)
 case "copy":
     copyDataToClipboard(data: data)
+case "edit":
+    edit(args: subcommandArguments, data: data)
 default:
     print("Unknown command")
     exit(0)
